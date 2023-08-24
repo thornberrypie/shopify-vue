@@ -29,6 +29,8 @@
     {% render 'meta-tags' %}
 
     <script src="{{ 'app.js' | asset_url }}" defer></script>
+    {{ 'app.css' | asset_url | stylesheet_tag }}
+
     {% comment %} <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script> {% endcomment %}
     {% comment %} <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> {% endcomment %}
 

@@ -238,7 +238,7 @@
                 </label>
                 <div class="price-per-item__container">
                   <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
-                    <button class="quantity__button no-js-hidden" name="minus" type="button">
+                    <button id="Quantity-Minus-{{ section.id }}" class="quantity__button no-js-hidden" name="minus" type="button">
                       <span class="visually-hidden">
                         {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
                       </span>
@@ -260,13 +260,14 @@
                       value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
                       form="{{ product_form_id }}"
                     />
-                    <button class="quantity__button no-js-hidden" name="plus" type="button">
+                    <button id="Quantity-Plus-{{ section.id }}" class="quantity__button no-js-hidden" name="plus" type="button">
                       <span class="visually-hidden">
                         {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
                       </span>
                       {% render 'icon-plus' %}
                     </button>
                   </quantity-input>
+                  <div id="Prices" class="visually-hidden" data-item-price="{{ product.price | money_without_currency }}" data-initial-cart-price="{{ cart.total_price | money_without_currency }}"></div>
                   {%- liquid
                     assign volume_pricing_array = product.selected_or_first_available_variant.quantity_price_breaks | sort: 'quantity' | reverse
                     assign current_qty_for_volume_pricing = cart_qty | plus: product.selected_or_first_available_variant.quantity_rule.min
