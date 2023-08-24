@@ -12,7 +12,8 @@
       return {
         cartPrice: 0,
         itemPrice: 0,
-        sectionId: 'template--20592259891485__main',
+        // sectionId: 'template--20592259891485__main', // local
+        sectionId: 'template--20577383153949__main',
       }
     },
 
